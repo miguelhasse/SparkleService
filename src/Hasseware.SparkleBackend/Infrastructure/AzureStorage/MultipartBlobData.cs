@@ -53,14 +53,14 @@ namespace Hasseware.SparkleService.AzureStorage
             return blobStream;
         }
 
-		internal async Task SetPropertiesFromHeadersAsync()
-		{
-			this.BlobReference.Properties.ContentType = this.Headers.ContentType.MediaType;
+	internal async Task SetPropertiesFromHeadersAsync()
+	{
+            this.BlobReference.Properties.ContentType = this.Headers.ContentType.MediaType;
             this.BlobReference.Properties.ContentDisposition = this.Headers.ContentDisposition.FileName;
             this.BlobReference.Properties.ContentEncoding = (this.Headers.ContentEncoding.Count > 0) ?
-                this.Headers.ContentEncoding.ToString() : null;
+            this.Headers.ContentEncoding.ToString() : null;
             this.BlobReference.Properties.ContentLanguage = (this.Headers.ContentLanguage.Count > 0) ?
-                this.Headers.ContentLanguage.ToString() : null;
+            this.Headers.ContentLanguage.ToString() : null;
 
             await this.BlobReference.SetPropertiesAsync().ConfigureAwait(false);
         }
